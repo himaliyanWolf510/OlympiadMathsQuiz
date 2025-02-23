@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Results</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- MathJax for rendering LaTeX if needed -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Define the correct answers for problems 1 to 10
+      const correctAnswers = ["64", "5", "35", "1", "1938", "48", "1.25", "3xyz", "93", "10"];
+      
+      // Retrieve user responses from localStorage
+      let responses = JSON.parse(localStorage.getItem("userResponses")) || [];
+      
+      // Build a horizontal table: one row for problem numbers and one for status icons.
+      let row1 = "<tr>";
+      let row2 = "<tr>";
+      
+      for (let i = 0; i < correctAnswers.length; i++) {
+         row1 += "<th>Problem " + (i + 1) + "</th>";
+         let isCorrect = responses[i] && responses[i].trim() === correctAnswers[i];
+         let icon = isCorrect 
+           ? "<img src='tick.svg' alt='Correct' class='icon'>" 
+           : "<img src='cross.svg' alt='Wrong' class='icon'>";
+         row2 += "<td>" + icon + "</td>";
+      }
+      row1 += "</tr>";
+      row2 += "</tr>";
+      
+      let tableHTML = "<table class='centered'>" + row1 + row2 + "</table>";
+      document.getElementById("responsesTable").innerHTML = tableHTML;
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Quiz Results</h1>
+  </header>
+  <div class="container" style="text-align: center; margin-top: 20px;">
+    <div id="responsesTable"></div>
+  </div>
+  <div class="ad">
+    <img src="fb-ad.png" alt="fb-ad">
+  </div>
+</body>
+</html>

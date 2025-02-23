@@ -52,10 +52,12 @@ h1 {
   }
   
   .answer-box {
-    width: 300px;
+    width: 200px;
     height: 1.5em;
     margin-top: 10px;
     font-size: 1em;
+    border-radius: 12px;
+    text-align: center;
   }
   
 
@@ -108,4 +110,58 @@ h1 {
 }
 
 
+table.centered {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: separate; /* Needed for border-radius to work */
+  border-spacing: 0; /* Ensures no gaps between cells */
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+table.centered th,
+table.centered td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+table.centered th:first-child {
+  border-top-left-radius: 12px;
+}
+
+table.centered th:last-child {
+  border-top-right-radius: 12px;
+}
+
+table.centered tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+
+table.centered tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+.icon {
+  height: 24px; /* Adjust size as needed */
+  width: auto;
+}
+
+.ad {
+    /* border: 5px solid pink; */
+    border-radius: 12px;
+    padding: 10px;
+    margin-top: 20px;
   
+    background-color: #FFAA94;
+    background-image: linear-gradient(315deg, #FFAA94 0%, #F17E7E 74%);
+    justify-content: center;
+    /* margin-left: 40px; */
+    padding-left: 100px;
+}
+
+img {
+  border-radius: 12px;
+}
