@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Math Quiz</title>
+  <title>Olympiad Mathematic</title>
+  <link rel="icon" type="image/png" href="logo.png"> 
   <!-- Load MathJax for rendering LaTeX -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async
@@ -11,197 +12,204 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Math Quiz</h1>
-  <ol>
-    <li class="problem">
-      <div class="problem-title">
-         How many rectangles which do not contain \(x\) are there in the below figure?
-      </div>
-      <div style="text-align: center; margin-bottom: 10px;">
-        <table class="centered">
-          <tr>
-            <td>\(\textcolor{white}{x}\)</td>
-            <td>\(\textcolor{white}{x}\)</td>
-            <td>\(\textcolor{white}{x}\)</td>
-            <td>\(\textcolor{white}{x}\)</td>
-          </tr>
-          <tr>
-            <td>\(\textcolor{white}{x}\)</td>
-            <td>\(x\)</td>
-            <td>\(\textcolor{white}{x}\)</td>
-            <td>\(\textcolor{white}{x}\)</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>\(\textcolor{white}{x}\)</td>
-            <td>\(\textcolor{white}{x}\)</td>
-            <td>\(\textcolor{white}{x}\)</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>\(\textcolor{white}{x}\)</td>
-            <td>\(\textcolor{white}{x}\)</td>
-            <td>\(\textcolor{white}{x}\)</td>
-          </tr>
-        </table>
-      </div>
-      <div>
-        Answer: <input type="text" class="answer-box">
-      </div>
-    </li>
+  
+  <header>
+    <h1>Olympiad Mathematic Enrollment Test</h1>
+    <img src="logo.png" alt="Quiz Logo" class="logo">
+  </header>
 
-    <li class="problem">
-      <div class="problem-title">
-         Determine the value of \(A\) in the following equation:
-      </div>
-      <div>
-        \[
-        8 + \dfrac{1}{1+\dfrac{1}{19+\dfrac{1}{1+\dfrac{1}{1+\dfrac{1}{A}}}}}=\dfrac{2023}{226}
-        \]
-      </div>
-      <div>
-        Answer: <input type="text" class="answer-box">
-      </div>
-    </li>
-
-    <li class="problem">
-      <div class="problem-title">
-         Beck spends \(30\) hours to finish a job. After Beck and Aiden spend \(14\) hours to work on the job together, Beck works for \(4\) more hours to finish the job. How many hours does Aiden need to finish the job alone?
-      </div>
-      <div>
-        Answer: <input type="text" class="answer-box">
-      </div>
-    </li>
-
-    <li class="problem">
-      <div class="problem-title">
-         Find the remainder when \(123456789101112\cdots202120222023\) is divided by \(9\).
-      </div>
-      <div>
-        Answer: <input type="text" class="answer-box">
-      </div>
-    </li>
-
-    <li class="problem">
-      <div class="problem-title">
-         Consider the infinite spiral arrangement of natural numbers illustrated by the partial table below. The spiral begins with \(1\) in the top-left corner and proceeds to the right \((1, 2, 3, \dots)\), then turns downward \((6, 5, 4, \dots)\), and continues in a rectangular spiral pattern. In this arrangement, determine the integer that appears <em>directly above</em> the number \(2023\).
-      </div>
-      <div style="text-align: center; margin-bottom: 10px;">
-        <table class="centered">
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>12</td>
-            <td>13</td>
-            <td>\(\cdots\)</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>5</td>
-            <td>4</td>
-            <td>11</td>
-            <td>14</td>
-            <td>\(\cdots\)</td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>8</td>
-            <td>9</td>
-            <td>10</td>
-            <td>15</td>
-            <td>\(\cdots\)</td>
-          </tr>
-          <tr>
-            <td>20</td>
-            <td>19</td>
-            <td>18</td>
-            <td>17</td>
-            <td>16</td>
-            <td>\(\cdots\)</td>
-          </tr>
-          <tr>
-            <td>21</td>
-            <td>22</td>
-            <td>23</td>
-            <td>24</td>
-            <td>25</td>
-            <td>\(\cdots\)</td>
-          </tr>
-          <tr>
-            <td>\(\vdots\)</td>
-            <td>\(\vdots\)</td>
-            <td>\(\vdots\)</td>
-            <td>\(\vdots\)</td>
-            <td>\(\vdots\)</td>
-            <td>\(\ddots\)</td>
-          </tr>
-        </table>
-      </div>
-      <div>
-        Answer: <input type="text" class="answer-box">
-      </div>
-    </li>
-
-    <li class="problem">
-      <div class="problem-title">
-         From \(1\) to \(1000\) (including \(1\) and \(1000\)), how many integers with exactly one '\(5\)' and one '\(8\)' in digits are there?
-      </div>
-      <div>
-        Answer: <input type="text" class="answer-box">
-      </div>
-    </li>
-
-    <li class="problem">
-      <div class="problem-title">
-         Solve the equation
-        \[
-        \dfrac{\sqrt{x+1} + \sqrt{x-1}}{\sqrt{x+1} - \sqrt{x-1}} = \dfrac{4x - 1}{2}.
-        \]
-      </div>
-      <div>
-        Answer: <input type="text" class="answer-box">
-      </div>
-    </li>
-
-    <li class="problem">
-      <div class="problem-title">
-         If \(x + y + z = 0\), then simplify the following expression:
-        \[
-        \left(\dfrac{y - z - x}{2}\right)^3 + \left(\dfrac{z - x - y}{2}\right)^3 + \left(\dfrac{x - y - z}{2}\right)^3.
-        \]
-      </div>
-      <div>
-        Answer: <input type="text" class="answer-box">
-      </div>
-    </li>
-
-    <li class="problem">
-      <div class="problem-title">
-        For a natural number \(n\), let \(n'\) denote the number obtained by deleting zero digits, if any.
-        (For example, if \(n = 260\), \(n' = 26\); if \(n = 2020\), \(n' = 22\).) Find the number of 3-digit numbers \(n\) for which \(n'\) is a divisor of \(n\), different from \(n\).
-      </div>
-      <div>
-        Answer: <input type="text" class="answer-box">
-      </div>
-    </li>
-
-    <li class="problem">
-      <div class="problem-title">
-         Each of the numbers \(x_1, x_2, \dots, x_{10}\) is \(\pm 1\). What is the smallest positive value of
-        \[
-        \sum_{1 \leq i < j \leq 101} x_i x_j \, ?
-        \]
-      </div>
-      <div>
-        Answer: <input type="text" class="answer-box">
-      </div>
-    </li>
-  </ol>
-
-  <div style="text-align: center; margin-top: 20px;">
-    <input type="submit" value="Submit">
+  <div class="container">
+    <ol>
+      <li class="problem">
+        <div class="problem-title">
+           How many rectangles which do not contain \(x\) are there in the below figure?
+        </div>
+        <div style="text-align: center; margin-bottom: 10px;">
+          <table class="centered">
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>x</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+        
+        <div>
+          Answer: <input type="text" class="answer-box">
+        </div>
+      </li>
+  
+      <li class="problem">
+        <div class="problem-title">
+           Determine the value of \(A\) in the following equation:
+        </div>
+        <div>
+          \[
+          8 + \dfrac{1}{1+\dfrac{1}{19+\dfrac{1}{1+\dfrac{1}{1+\dfrac{1}{A}}}}}=\dfrac{2023}{226}
+          \]
+        </div>
+        <div>
+          Answer: <input type="text" class="answer-box">
+        </div>
+      </li>
+  
+      <li class="problem">
+        <div class="problem-title">
+           Beck spends \(30\) hours to finish a job. After Beck and Aiden spend \(14\) hours to work on the job together, Beck works for \(4\) more hours to finish the job. How many hours does Aiden need to finish the job alone?
+        </div>
+        <div>
+          Answer: <input type="text" class="answer-box">
+        </div>
+      </li>
+  
+      <li class="problem">
+        <div class="problem-title">
+           Find the remainder when \(123456789101112\cdots202120222023\) is divided by \(9\).
+        </div>
+        <div>
+          Answer: <input type="text" class="answer-box">
+        </div>
+      </li>
+  
+      <li class="problem">
+        <div class="problem-title">
+           Consider the infinite spiral arrangement of natural numbers illustrated by the partial table below. The spiral begins with \(1\) in the top-left corner and proceeds to the right \((1, 2, 3, \dots)\), then turns downward \((6, 5, 4, \dots)\), and continues in a rectangular spiral pattern. In this arrangement, determine the integer that appears <em>directly above</em> the number \(2023\).
+        </div>
+        <div style="text-align: center; margin-bottom: 10px;">
+          <table class="centered">
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>12</td>
+              <td>13</td>
+              <td>\(\cdots\)</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>11</td>
+              <td>14</td>
+              <td>\(\cdots\)</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>8</td>
+              <td>9</td>
+              <td>10</td>
+              <td>15</td>
+              <td>\(\cdots\)</td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td>19</td>
+              <td>18</td>
+              <td>17</td>
+              <td>16</td>
+              <td>\(\cdots\)</td>
+            </tr>
+            <tr>
+              <td>21</td>
+              <td>22</td>
+              <td>23</td>
+              <td>24</td>
+              <td>25</td>
+              <td>\(\cdots\)</td>
+            </tr>
+            <tr>
+              <td>\(\vdots\)</td>
+              <td>\(\vdots\)</td>
+              <td>\(\vdots\)</td>
+              <td>\(\vdots\)</td>
+              <td>\(\vdots\)</td>
+              <td>\(\ddots\)</td>
+            </tr>
+          </table>
+        </div>
+        <div>
+          Answer: <input type="text" class="answer-box">
+        </div>
+      </li>
+  
+      <li class="problem">
+        <div class="problem-title">
+           From \(1\) to \(1000\) (including \(1\) and \(1000\)), how many integers with exactly one '\(5\)' and one '\(8\)' in digits are there?
+        </div>
+        <div>
+          Answer: <input type="text" class="answer-box">
+        </div>
+      </li>
+  
+      <li class="problem">
+        <div class="problem-title">
+           Solve the equation
+          \[
+          \dfrac{\sqrt{x+1} + \sqrt{x-1}}{\sqrt{x+1} - \sqrt{x-1}} = \dfrac{4x - 1}{2}.
+          \]
+        </div>
+        <div>
+          Answer: <input type="text" class="answer-box">
+        </div>
+      </li>
+  
+      <li class="problem">
+        <div class="problem-title">
+           If \(x + y + z = 0\), then simplify the following expression:
+          \[
+          \left(\dfrac{y - z - x}{2}\right)^3 + \left(\dfrac{z - x - y}{2}\right)^3 + \left(\dfrac{x - y - z}{2}\right)^3.
+          \]
+        </div>
+        <div>
+          Answer: <input type="text" class="answer-box">
+        </div>
+      </li>
+  
+      <li class="problem">
+        <div class="problem-title">
+          For a natural number \(n\), let \(n'\) denote the number obtained by deleting zero digits, if any.
+          (For example, if \(n = 260\), \(n' = 26\); if \(n = 2020\), \(n' = 22\).) Find the number of 3-digit numbers \(n\) for which \(n'\) is a divisor of \(n\), different from \(n\).
+        </div>
+        <div>
+          Answer: <input type="text" class="answer-box">
+        </div>
+      </li>
+  
+      <li class="problem">
+        <div class="problem-title">
+           Each of the numbers \(x_1, x_2, \dots, x_{10}\) is \(\pm 1\). What is the smallest positive value of
+          \[
+          \sum_{1 \leq i < j \leq 101} x_i x_j \, ?
+          \]
+        </div>
+        <div>
+          Answer: <input type="text" class="answer-box">
+        </div>
+      </li>
+    </ol>
   </div>
+
+  <button type="submit" class="submit-button">Submit Quiz</button>
+
   
 </body>
 </html>
