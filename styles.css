@@ -34,7 +34,7 @@ h1 {
 .container {
   /* border: 5px solid pink; */
   border-radius: 12px;
-  padding: 10px;
+  padding: 25px;
   margin-top: 20px;
   /* background: linear-gradient(45deg, #ff1493, #ff69b4); */
   background-color: #FFAA94;
@@ -145,7 +145,7 @@ table.centered tr:last-child td:last-child {
 }
 
 .icon {
-  height: 24px; /* Adjust size as needed */
+  height: 30px; /* Adjust size as needed */
   width: auto;
 }
 
@@ -159,9 +159,16 @@ table.centered tr:last-child td:last-child {
     background-image: linear-gradient(315deg, #FFAA94 0%, #F17E7E 74%);
     justify-content: center;
     /* margin-left: 40px; */
-    padding-left: 100px;
+    /* padding-left: 100px; */
+    text-align: center;
 }
 
 img {
   border-radius: 12px;
+}
+
+/* Style for tables with no borders */
+table.noborder {
+  /* border: 2px solid red; */
+  border-radius: 0px;
 }

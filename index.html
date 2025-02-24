@@ -2,91 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Olympiad Mathematics Enrollment Quiz</title>
+  <title>Olympiad Mathematics Quiz</title>
   <link rel="icon" type="image/png" href="logo.png"> 
   <link rel="stylesheet" href="styles.css">
-  
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
+  <!-- MathJax for rendering LaTeX -->
+  <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
+  <script id="MathJax-script" async 
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
-  <script>
-    function gradeQuiz(event) {
-      event.preventDefault(); // Prevent default form submission
-      
-      // Correct answers for problems 1 to 10
-      const correctAnswers = [
-        "64",
-        "5",
-        "35",
-        "1",
-        "1938",
-        "48",
-        "1.25",
-        "3xyz",
-        "93",
-        "10"
-      ];
-
-      let score = 0;
-      let userResponses = [];
-
-      // Loop over each answer input (named answer1 ... answer10)
-      for (let i = 1; i <= 10; i++) {
-        const userInput = document.getElementsByName("answer" + i)[0].value.trim();
-        userResponses.push(userInput);
-        if (userInput === correctAnswers[i - 1]) {
-          score++;
-        }
-      }
-
-      // Store the score and responses in localStorage
-      localStorage.setItem("quizScore", score);
-      localStorage.setItem("userResponses", JSON.stringify(userResponses));
-
-      // Redirect to the score page
-      window.location.href = "score.html";
-    }
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script type="text/javascript">
+    emailjs.init("YOUR_USER_ID");
   </script>
+  <script src="script.js"></script>
+  
+
 </head>
 <body>
+  
+  <div id="timer" style="position: fixed; top: 10px; left: 10px; font-size: 20px; font-weight: bold; color: white; background: black; padding: 5px 10px; border-radius: 5px;">
+    30:00
+  </div>
   <header>
     <h1>Olympiad Mathematics Quiz</h1>
     <img src="logo.png" alt="Quiz Logo" class="logo">
   </header>
   <div class="container">
-    <form onsubmit="gradeQuiz(event)">
-      <ol>
-        <!-- Problem 1 -->
+    <form id="quizForm" name="quizSubmission" data-netlify="true" onsubmit="gradeQuiz(event)">
+      <input type="hidden" name="form-name" value="quizSubmission">
+      <ul style="list-style-type: none; padding: 0; margin: 0;">
+       
         <li class="problem">
           <div class="problem-title">
-            1. How many rectangles which do not contain \(x\) are there in the below figure?
+            1. How many rectangles which do not contain X are there in the below figure?
           </div>
           <div style="text-align: center; margin-bottom: 10px;">
-            <table class="centered">
+            <table class="centered noborder">
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td></td><td></td><td></td><td></td>
               </tr>
               <tr>
-                <td></td>
-                <td>x</td>
-                <td></td>
-                <td></td>
+                <td></td><td>X</td><td></td><td></td>
               </tr>
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td></td><td></td><td></td><td></td>
               </tr>
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td></td><td></td><td></td><td></td>
               </tr>
             </table>
           </div>
@@ -94,7 +56,6 @@
             Answer: <input type="text" name="answer1" class="answer-box">
           </div>
         </li>
-        
         <!-- Problem 2 -->
         <li class="problem">
           <div class="problem-title">
@@ -107,7 +68,6 @@
             Answer: <input type="text" name="answer2" class="answer-box">
           </div>
         </li>
-        
         <!-- Problem 3 -->
         <li class="problem">
           <div class="problem-title">
@@ -117,7 +77,6 @@
             Answer: <input type="text" name="answer3" class="answer-box">
           </div>
         </li>
-        
         <!-- Problem 4 -->
         <li class="problem">
           <div class="problem-title">
@@ -127,61 +86,30 @@
             Answer: <input type="text" name="answer4" class="answer-box">
           </div>
         </li>
-        
         <!-- Problem 5 -->
         <li class="problem">
           <div class="problem-title">
             5. Consider the infinite spiral arrangement of natural numbers illustrated by the partial table below. The spiral begins with \(1\) in the top-left corner and proceeds to the right \((1, 2, 3, \dots)\), then turns downward \((6, 5, 4, \dots)\), and continues in a rectangular spiral pattern. In this arrangement, determine the integer that appears <em>directly above</em> the number \(2023\).
           </div>
           <div style="text-align: center; margin-bottom: 10px;">
-            <table class="centered">
+            <table class="centered noborder">
               <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>12</td>
-                <td>13</td>
-                <td>\(\cdots\)</td>
+                <td>1</td><td>2</td><td>3</td><td>12</td><td>13</td><td>\(\cdots\)</td>
               </tr>
               <tr>
-                <td>6</td>
-                <td>5</td>
-                <td>4</td>
-                <td>11</td>
-                <td>14</td>
-                <td>\(\cdots\)</td>
+                <td>6</td><td>5</td><td>4</td><td>11</td><td>14</td><td>\(\cdots\)</td>
               </tr>
               <tr>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-                <td>10</td>
-                <td>15</td>
-                <td>\(\cdots\)</td>
+                <td>7</td><td>8</td><td>9</td><td>10</td><td>15</td><td>\(\cdots\)</td>
               </tr>
               <tr>
-                <td>20</td>
-                <td>19</td>
-                <td>18</td>
-                <td>17</td>
-                <td>16</td>
-                <td>\(\cdots\)</td>
+                <td>20</td><td>19</td><td>18</td><td>17</td><td>16</td><td>\(\cdots\)</td>
               </tr>
               <tr>
-                <td>21</td>
-                <td>22</td>
-                <td>23</td>
-                <td>24</td>
-                <td>25</td>
-                <td>\(\cdots\)</td>
+                <td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>\(\cdots\)</td>
               </tr>
               <tr>
-                <td>\(\vdots\)</td>
-                <td>\(\vdots\)</td>
-                <td>\(\vdots\)</td>
-                <td>\(\vdots\)</td>
-                <td>\(\vdots\)</td>
-                <td>\(\ddots\)</td>
+                <td>\(\vdots\)</td><td>\(\vdots\)</td><td>\(\vdots\)</td><td>\(\vdots\)</td><td>\(\vdots\)</td><td>\(\ddots\)</td>
               </tr>
             </table>
           </div>
@@ -189,7 +117,6 @@
             Answer: <input type="text" name="answer5" class="answer-box">
           </div>
         </li>
-        
         <!-- Problem 6 -->
         <li class="problem">
           <div class="problem-title">
@@ -199,7 +126,6 @@
             Answer: <input type="text" name="answer6" class="answer-box">
           </div>
         </li>
-        
         <!-- Problem 7 -->
         <li class="problem">
           <div class="problem-title">
@@ -212,7 +138,6 @@
             Answer: <input type="text" name="answer7" class="answer-box">
           </div>
         </li>
-        
         <!-- Problem 8 -->
         <li class="problem">
           <div class="problem-title">
@@ -225,7 +150,6 @@
             Answer: <input type="text" name="answer8" class="answer-box">
           </div>
         </li>
-        
         <!-- Problem 9 -->
         <li class="problem">
           <div class="problem-title">
@@ -235,7 +159,6 @@
             Answer: <input type="text" name="answer9" class="answer-box">
           </div>
         </li>
-        
         <!-- Problem 10 -->
         <li class="problem">
           <div class="problem-title">
@@ -248,11 +171,13 @@
             Answer: <input type="text" name="answer10" class="answer-box">
           </div>
         </li>
-      </ol>
+      </ul>
       <div style="text-align: center; margin-top: 20px;">
         <button type="submit" class="submit-button">Submit Quiz</button>
       </div>
     </form>
   </div>
+  <script src="script.js"></script>
+
 </body>
 </html>
