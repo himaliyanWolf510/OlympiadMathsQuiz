@@ -1,13 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Retrieve user info from localStorage, if available.
+  // Update the static hidden fields with registration info from localStorage.
   const storedUserInfo = localStorage.getItem("userInfo");
-  const userInfo = storedUserInfo ? JSON.parse(storedUserInfo) : {};
+  if (storedUserInfo) {
+    const info = JSON.parse(storedUserInfo);
+    document.getElementById("firstNameHidden").value = info.firstName || "";
+    document.getElementById("lastNameHidden").value = info.lastName || "";
+    document.getElementById("emailHidden").value = info.email || "";
+    document.getElementById("phoneHidden").value = info.phone || "";
+    document.getElementById("classEnrolledHidden").value = info.classEnrolled || "";
+  }
 
+  // Timer and form submission code.
   const timerElement = document.getElementById("timer");
   const quizForm = document.getElementById("quizForm");
-
-  // Start a 30-minute timer (in seconds)
-  let totalTime = 30 * 60;
+  let totalTime = 30 * 60; // 30 minutes in seconds
   let timerInterval = setInterval(function () {
     let minutes = Math.floor(totalTime / 60);
     let seconds = totalTime % 60;
@@ -15,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
       (minutes < 10 ? "0" + minutes : minutes) +
       ":" +
       (seconds < 10 ? "0" + seconds : seconds);
-
     if (totalTime <= 0) {
       clearInterval(timerInterval);
       gradeQuiz({ preventDefault: function () {} });
@@ -23,46 +28,35 @@ document.addEventListener("DOMContentLoaded", function () {
     totalTime--;
   }, 1000);
 
-  // Function to grade the quiz, append user info, and submit via AJAX (fetch)
+  // Grade quiz function to collect answers, store them, and submit the form via fetch.
   function gradeQuiz(event) {
     if (event) event.preventDefault();
-
-    // Collect quiz answers from input fields answer1 to answer10
+    const correctAnswers = ["64", "5", "35", "1", "1938", "48", "1.25", "3xyz", "93", "10"];
     let userAnswers = [];
     for (let i = 1; i <= 10; i++) {
       const input = document.getElementsByName("answer" + i)[0];
       userAnswers.push(input.value.trim());
     }
-    // Save the quiz answers locally (if needed for the score page)
     localStorage.setItem("userResponses", JSON.stringify(userAnswers));
-
-    // Create a FormData object from the quiz form (this will include any static fields)
+    
+    // Create a FormData object from the quiz form.
     let formData = new FormData(quizForm);
-
-    // Manually append the user info from localStorage into the FormData.
-    for (let key in userInfo) {
-      formData.append(key, userInfo[key]);
-    }
-
-    // Use fetch to POST the data to the current URL ("/") so that Netlify captures it.
+    // (Since the hidden fields are already in the HTML, they are automatically included.)
+    
     fetch("/", {
       method: "POST",
       body: formData
     })
       .then(function (response) {
-        console.log("Form submitted successfully!", response);
-        // Redirect to the score page after submission
+        console.log("Form successfully submitted!", response);
         window.location.href = "score.html";
       })
       .catch(function (error) {
         console.error("Error submitting form:", error);
-        // Even on error, navigate to the score page
         window.location.href = "score.html";
       });
   }
 
-  // Attach the gradeQuiz function to the form submission event
-  console.log(quizForm);
   if (quizForm) {
     quizForm.addEventListener("submit", gradeQuiz);
   }

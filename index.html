@@ -6,7 +6,6 @@
   <link rel="icon" type="image/png" href="logo.png"> 
   <link rel="stylesheet" href="styles.css">
   <!-- MathJax for rendering LaTeX -->
-  <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
   <script id="MathJax-script" async 
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
@@ -14,12 +13,10 @@
   <script type="text/javascript">
     emailjs.init("YOUR_USER_ID");
   </script>
-  <script src="script.js"></script>
-  
-
+  <script src="script.js" defer></script>
 </head>
 <body>
-  
+  <!-- Timer displayed at top left -->
   <div id="timer" style="position: fixed; top: 10px; left: 10px; font-size: 20px; font-weight: bold; color: white; background: black; padding: 5px 10px; border-radius: 5px;">
     30:00
   </div>
@@ -28,10 +25,19 @@
     <img src="logo.png" alt="Quiz Logo" class="logo">
   </header>
   <div class="container">
+    <!-- The form is set up as a Netlify Form -->
     <form id="quizForm" name="quizSubmission" data-netlify="true" onsubmit="gradeQuiz(event)">
+      <!-- Netlify requires the form-name field to be present in the static HTML -->
       <input type="hidden" name="form-name" value="quizSubmission">
+      <!-- Include hidden fields for user registration info statically -->
+      <input type="hidden" name="firstName" id="firstNameHidden">
+      <input type="hidden" name="lastName" id="lastNameHidden">
+      <input type="hidden" name="email" id="emailHidden">
+      <input type="hidden" name="phone" id="phoneHidden">
+      <input type="hidden" name="classEnrolled" id="classEnrolledHidden">
+      
       <ul style="list-style-type: none; padding: 0; margin: 0;">
-       
+        <!-- Problem 1 -->
         <li class="problem">
           <div class="problem-title">
             1. How many rectangles which do not contain X are there in the below figure?
@@ -177,7 +183,5 @@
       </div>
     </form>
   </div>
-  <script src="script.js"></script>
-
 </body>
 </html>
