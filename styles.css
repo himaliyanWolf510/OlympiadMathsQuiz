@@ -1,8 +1,8 @@
+/* Base styles */
 body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
+}
 
-  }
-  
 header {
   background-color: pink; 
   color: black; 
@@ -10,20 +10,17 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  margin: 0px;
+  margin: 0;
   border-radius: 12px;
-  /* border: 5px solid pink; */
   background-color: #FFAA94;
   background-image: linear-gradient(315deg, #FFAA94 0%, #F17E7E 74%);
 }
-
 
 h1 {
   margin: 0 auto; 
   text-align: center;
   flex-grow: 1; 
 }
-
 
 .logo {
   height: 50px;
@@ -32,89 +29,37 @@ h1 {
 }
 
 .container {
-  /* border: 5px solid pink; */
   border-radius: 12px;
   padding: 25px;
   margin-top: 20px;
-  /* background: linear-gradient(45deg, #ff1493, #ff69b4); */
   background-color: #FFAA94;
   background-image: linear-gradient(315deg, #FFAA94 0%, #F17E7E 74%);
 }
 
+.problem {
+  margin-bottom: 2em;
+}
 
-  .problem {
-    margin-bottom: 2em;
-  }
-  
-  .problem-title {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .answer-box {
-    width: 200px;
-    height: 1.5em;
-    margin-top: 10px;
-    font-size: 1em;
-    border-radius: 12px;
-    text-align: center;
-  }
-  
-
-  table.centered {
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse;
-  }
-  
-  td, th {
-    border: 1px solid black;
-    padding: 5px;
-    text-align: center;
-  }
-
-
-
-.submit-button {
-  background-color: pink; /* Deep pink background */
-  color: black; /* White text */
-  font-size: 18px; /* Larger font */
+.problem-title {
   font-weight: bold;
-  padding: 12px 24px; /* Padding for better size */
-  border: none; /* Remove border */
-  border-radius: 8px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor */
-  display: block; /* Make it a block element */
-  margin: 20px auto; /* Centering */
-  transition: 0.3s ease-in-out; /* Smooth transition */
-  background-color: #FFAA94;
-  background-image: linear-gradient(315deg, #FFAA94 0%, #F17E7E 74%);
+  margin-bottom: 10px;
 }
 
-/* Hover effect */
-.submit-button:hover {
-  background-color: #ff69b4; /* Lighter pink */
-  transform: scale(1.05); /* Slight zoom on hover */
-}
-
-.centered {
-  margin: auto;
-  border-collapse: collapse;
-}
-
-.centered td {
-  width: 50px; /* Adjust width as needed */
-  height: 50px; /* Adjust height as needed */
+.answer-box {
+  width: 200px;
+  height: 1.5em;
+  margin-top: 10px;
+  font-size: 1em;
+  border-radius: 12px;
   text-align: center;
-  border: 1px solid black; /* Optional: adds border for visibility */
 }
 
-
+/* Tables */
 table.centered {
   margin-left: auto;
   margin-right: auto;
-  border-collapse: separate; /* Needed for border-radius to work */
-  border-spacing: 0; /* Ensures no gaps between cells */
+  border-collapse: separate; /* Needed for border-radius */
+  border-spacing: 0;
   border-radius: 12px;
   overflow: hidden;
   background: white;
@@ -144,31 +89,93 @@ table.centered tr:last-child td:last-child {
   border-bottom-right-radius: 12px;
 }
 
+/* For tables that should have no borders */
+table.noborder {
+  border-radius: 0;
+}
+
+/* Icons */
 .icon {
-  height: 30px; /* Adjust size as needed */
+  height: 30px;
   width: auto;
 }
 
+/* Advertisement container, if used */
 .ad {
-    /* border: 5px solid pink; */
-    border-radius: 12px;
-    padding: 10px;
-    margin-top: 20px;
-  
-    background-color: #FFAA94;
-    background-image: linear-gradient(315deg, #FFAA94 0%, #F17E7E 74%);
-    justify-content: center;
-    /* margin-left: 40px; */
-    /* padding-left: 100px; */
-    text-align: center;
+  border-radius: 12px;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #FFAA94;
+  background-image: linear-gradient(315deg, #FFAA94 0%, #F17E7E 74%);
+  justify-content: center;
+  text-align: center;
 }
 
 img {
   border-radius: 12px;
 }
 
-/* Style for tables with no borders */
-table.noborder {
-  /* border: 2px solid red; */
-  border-radius: 0px;
+/* Submit button */
+.submit-button {
+  background-color: #FFAA94;
+  background-image: linear-gradient(315deg, #FFAA94 0%, #F17E7E 74%);
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto;
+  transition: 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+  background-color: #ff69b4;
+  transform: scale(1.05);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  /* Ensure the viewport width is used */
+  body {
+    margin: 1em;
+  }
+  
+  header {
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  header h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .logo {
+    height: 40px;
+  }
+  
+  .container {
+    padding: 15px;
+    margin-top: 10px;
+  }
+  
+  .answer-box {
+    width: 90%; /* Make input fields fill available width */
+    font-size: 1em;
+  }
+  
+  table.centered th,
+  table.centered td {
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  .submit-button {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+  }
 }
