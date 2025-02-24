@@ -2,28 +2,134 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Olympiad Mathematics</title>
-  <link rel="icon" type="image/png" href="logo.png"> 
+  <title>Olympiad Mathematics Quiz - Registration</title>
+  <link rel="icon" type="image/png" href="logo.png">
   <link rel="stylesheet" href="styles.css">
-  <!-- MathJax for rendering LaTeX (if needed) -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <!-- Optional: Include MathJax if you need LaTeX rendering -->
   <script id="MathJax-script" async 
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
+  <style>
+    /* Additional styling for the registration form */
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 2px solid #ff1493;
+      border-radius: 12px;
+      background: linear-gradient(45deg, #ffefff, #ffe0f0);
+    }
+    .form-group {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .form-group input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    .submit-button {
+      background-color: #ff1493;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+    .submit-button:hover {
+      background-color: #ff69b4;
+      transform: scale(1.05);
+    }
+    header {
+      background-color: black;
+      color: pink;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    header h1 {
+      margin: 0;
+      text-align: center;
+      flex-grow: 1;
+    }
+    .logo {
+      height: 50px;
+      width: auto;
+    }
+    h2 {
+      text-align: center;
+      color: #ff1493;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Olympiad Mathematics</h1>
+    <h1>Olympiad Mathematics Quiz</h1>
     <img src="logo.png" alt="Quiz Logo" class="logo">
   </header>
-  <div class="container" style="text-align: center; margin-top: 50px;">
-    <button onclick="startTest()" class="submit-button">Start Test</button>
+  <div class="container">
+    <h2>Registration</h2>
+    <!-- The form is set up as a Netlify Form -->
+    <form id="registrationForm" name="registrationSubmission" data-netlify="true">
+      <input type="hidden" name="form-name" value="registrationSubmission">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label for="class">Class Enrolled In:</label>
+        <input type="text" id="class" name="class" required>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <button type="submit" class="submit-button">Start Test</button>
+      </div>
+    </form>
   </div>
   <script>
-    function startTest() {
-     
+    // When the registration form is submitted:
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      // Collect registration details
+      const userInfo = {
+        firstName: document.getElementById("firstName").value.trim(),
+        lastName: document.getElementById("lastName").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        classEnrolled: document.getElementById("class").value.trim()
+      };
+      
+      // Save the user info in localStorage for later inclusion in the quiz submission
+      localStorage.setItem("userInfo", JSON.stringify(userInfo));
+      
+      // Optionally, if you want Netlify to capture this registration as a form submission,
+      // you can remove the JavaScript redirection and let the form submit normally.
+      // For our purposes, we redirect to quiz.html.
       window.location.href = "index.html";
-    }
+    });
   </script>
 </body>
 </html>
